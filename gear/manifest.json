@@ -1,0 +1,49 @@
+{
+	"name": "stisuite",
+	"label": "STI Suite V3.0 for QSM Processing",
+	"description": "STI Suite is a Matlab toolbox for MRI phase and magnetic susceptibility mapping. This version of the STI pipeline can process the real and imaginary images acquired with the multi-echo SPGR sequence.",
+	"version": "1.0.0",
+	"inputs": {
+		"dicom": {
+			"base": "file",
+			"description": "Dicom archive of the QSM acquisition.",
+			"optional": false,
+			"type": {
+				"enum": [
+					"dicom"
+				]
+			}
+		}
+	},
+	"config": {
+		"pad_size": {
+			"default": 12,
+			"description": "Size for padarray to increase numerical accuracy (default=12)",
+			"type": "integer"
+		},
+		"smv_size": {
+			"default": 12,
+			"description": "Size of the spherical kernel (default=12)",
+			"type": "integer"
+		}
+	},
+	"environment": {
+		"FLYWHEEL": "/flywheel/v0",
+		"LD_LIBRARY_PATH": "/opt/mcr/v95/runtime/glnxa64:/opt/mcr/v95/bin/glnxa64:/opt/mcr/v95/sys/os/glnxa64:/opt/mcr/v95/extern/bin/glnxa64",
+		"PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+	},
+	"author": "Chunlei Liu",
+	"maintainer": "Hua Wu",
+	"license": "MIT",
+	"source": "https://people.eecs.berkeley.edu/~chunlei.liu/software.html",
+	"url": "https://github.com/huawu02/STISuite_V3.0_bin",
+	"custom": {
+		"gear-builder": {
+			"category": "analysis",
+			"image": "stisuite"
+		},
+		"flywheel": {
+			"suite": "Stanford CNI"
+		}
+	}
+}
